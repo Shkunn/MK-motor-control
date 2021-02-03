@@ -1,4 +1,5 @@
-const udp = requirejs('dgram')
+var udp = requirejs('dgram')
+
 const PORT = 9000
 const HOST = "192.168.220.81"
 
@@ -28,4 +29,8 @@ function fonction2(PORT, HOST, client, data_DOWN) {
             console.log('Data sent !!!')
         }
     })   
+}
+
+function fonction3() {
+    alert('HEHO CLICK')
 }
