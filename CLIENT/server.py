@@ -2,11 +2,21 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 
+import socket
+
+HOST = "192.168.220.81"
+PORT = 9000
+
 hostName = "localhost"
 serverPort = 8080
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
+        byte_message = bytes("Hello, World!", "utf-8")
+        opened_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        opened_socket.sendto(byte_message, (HOST, PORT))
+
+        opened_socket.close()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
