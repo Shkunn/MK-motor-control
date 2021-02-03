@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+    <body>
+        <!-- <img class="logo" src="pics/logo.png"/> -->
+
+        <h1 class="title">DEVO - Motor Control</h1>
+
+        <form class="form" action="destination" method="get">
+            <label for="fname">IP adresse:</label>
+            <input type="text" id="fname" name="fname" value="192.168.220.81"><br><br>
+            <label for="lname">PORT:</label>
+            <input type="text" id="lname" name="lname" value="9000"><br><br>
+            <!-- <button id="CONNECT" onclick="fonction3()">CONNECT</button> -->
+            <input type="submit" value="CONNECT"
+        </form>
+
+        <p class="para">Click "CONNECT" to launch the 
+            connection between the ESP-32 and the website.</p>
+
+        <div class="content">
+            <button id="UP" onclick="fonction1()">UP</button>
+            <button id="DOWN" onclick="fonction2()">DOWN</button>
+        </div>
+    
+    <script src="require.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
