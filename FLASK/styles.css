@@ -34,3 +34,31 @@ body{
 .para {
     color: white;
 }
+
+#LEFT{
+    position:absolute;
+    top:50%;
+    left:32%;
+    /* transform:translateY(-50%); */
+}
+
+#RIGHT{
+    position:absolute;
+    top:50%;
+    left:55%;
+    /* transform:translateY(-50%); */
+}
+
+#UP{
+    position:absolute;
+    top:30%;
+    left:44.5%;
+    /* transform:translateX(-50%); */
+}
+
+#DOWN{
+    position:absolute;
+    top:70%;
+    left:42%;
+    /* transform:translateX(-50%); */
+}

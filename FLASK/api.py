@@ -8,9 +8,13 @@ PORT = 9000
 @app.route('/control/<ip>/<direction>')
 def control(ip, direction):
     if direction == "left":
-        message = "left"
+        message = "1111"
     elif direction == "right":
-        message = "right"
+        message = "11"
+    elif direction == "up":
+        message = "1"
+    elif direction == "down":
+        message = "111"
     else:
         return jsonify(hello='error')
 
@@ -22,4 +26,4 @@ def control(ip, direction):
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True)
