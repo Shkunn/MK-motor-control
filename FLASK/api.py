@@ -15,6 +15,8 @@ def control(ip, direction):
         message = "1"
     elif direction == "down":
         message = "111"
+    elif direction == "close":
+        message = "11111"
     else:
         return jsonify(hello='error')
 

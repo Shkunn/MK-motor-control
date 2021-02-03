@@ -1,39 +1,28 @@
-<!doctype html>
-
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="utf-8">
+    <title>DEVO - Controls</title>
+    <meta name="author" content="Teddy&Guigui">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <img class="logo" src="assets/logo.png"/>
+    <h1 class="title">Motor Control</h1>
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <p class="para">Use controls to move robot (via the ESP-32). Set IP.</p>
+    <input type="text" name="IP" id="myip" value="192.168.220.81"/>
 
-    <link rel="stylesheet" href="styles.css">
-    
-</head>
+    <div class="controls">
+      <div id="UP" onmousedown="control('up')" onmouseleave="control('close')" class="control"></div>
+      <div id="LEFT" onmousedown="control('left')" onmouseleave="control('close')" class="control"></div>
+      <div id="RIGHT" onmousedown="control('right')" onmouseleave="control('close')" class="control"></div>
+      <div id="DOWN" onmousedown="control('down')" onmouseleave="control('close')" class="control"></div>
+    </div>
 
-    <body>
-        <!-- <img class="logo" src="pics/logo.png"/> -->
-
-        <h1 class="title">DEVO - Motor Control</h1>
-
-        <input type = "text" name = "IP" id="myip" value="192.168.220.81"/>
-
-        <p class="para">Click "CONNECT" to establish 
-            the ESP-32/website connection.</p>
-
-        <div class="content">
-
-            <button id="LEFT" onclick="control('left')">LEFT</button>
-
-            <button id="RIGHT" onclick="control('right')">RIGHT</button>
-
-            <button id="UP" onclick="control('up')">UP</button>
-            
-            <button id="DOWN" onclick="control('down')">DOWN</button>
-
-        </div>
-         
-    <script src="script.js"></script>
-</body>
+  <script src="assets/script.js"></script>
+  </body>
 </html>
