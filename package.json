@@ -1,0 +1,22 @@
+{
+  "name": "shkunn.github.io",
+  "version": "1.0.0",
+  "description": "Code of motor control website to talk with ESP-32",
+  "main": "require.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shkunn/Shkunn.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shkunn/Shkunn.github.io/issues"
+  },
+  "homepage": "https://github.com/Shkunn/Shkunn.github.io#readme",
+  "dependencies": {
+    "dgram": "^1.0.1"
+  }
+}
