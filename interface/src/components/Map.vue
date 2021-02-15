@@ -27,8 +27,6 @@
 </template>
 
 <script>
-const Http = new XMLHttpRequest();
-const SERVER = "127.0.0.1:5000"
 export default {
   name: 'Map',
 data: () => ({
@@ -84,12 +82,18 @@ data: () => ({
       this.showReturn = true;
     },
     navigation: function (coordinates) {
-      // alert(coordinates)
-      const url = "http:" + SERVER + "/navigation/" + coordinates;
-      Http.open("GET", url);
-      Http.send();
-      this.$router.push('/info')
+      alert(coordinates)
+      this.$http.get("http://localhost:5000/navigation/" + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
+      .then(function (response) {
+          console.log(response)
+          this.$router.push('/info')
       this.$route.params.pathMatch
+    })
+    .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+      
     }
   }
 }
