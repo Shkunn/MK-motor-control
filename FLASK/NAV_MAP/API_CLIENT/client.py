@@ -1,8 +1,8 @@
 import socket
 
 # Define the IP address and the Port Number
-ip      = "127.0.0.1"
-port    = 7070
+ip    = "127.0.0.1"
+port  = 7070
 
 listeningAddress = (ip, port)
 
@@ -12,4 +12,4 @@ datagramSocket.bind(listeningAddress)
 
 while(True):
     localization, sourceAddress = datagramSocket.recvfrom(128)
-    print(" Go to %s "%(localization.decode()))
+    print("Go to %s "%(localization.decode()))
