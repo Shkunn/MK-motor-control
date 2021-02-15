@@ -1,18 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Info" class="info" src="@/assets/info.svg">
+    <img alt="Info" class="info" src="@/assets/info.svg" v-on:click="info()">
     <div class="home__head">
-
-      <img alt="Vue logo" class="logo" src="@/assets/logo.png" onclick="info()">
-
-      <h1 class="title">DEVO</h1>
+      <img alt="Vue logo" class="logo" src="@/assets/logo.png">
+      <h1 class="home__title">DEVO</h1>
     </div>
     <p class="para">
       The DVIC is a transdisciplinary laboratory where numerous projects are being carried out. We will guide you through these ! Please follow me
     </p>
 
     <div class="home__modules">
-      <router-link to="/about" class="home__module">
+      <router-link to="/map" class="home__module">
         4th floor navigation
       </router-link>
       <a class="home__module" href="#">
@@ -50,7 +48,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0;
 }
 
 .info {
@@ -79,13 +77,13 @@ body {
   }
 }
 
-.title {
+.home__title {
   font-size: 5em;
   color: #f07b4b;
 }
 
 @media screen and (max-width: 640px) {
-  .title {
+  .home__title {
     font-size: 1.5em;
   }
 }
