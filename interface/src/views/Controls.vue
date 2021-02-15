@@ -5,7 +5,7 @@
         Stat
       </div>
       <div class="cell">
-        <DvicMap />
+        MAP
       </div>
       <div class="cell">
         <button v-on:click="manual()" class="info__cta-manual">MANUAL MODE</button>
@@ -76,7 +76,7 @@ export default {
 }
 
 .modal__return_button {
-  background-color: white;
+  background-color: orange;
 }
 
 .info__cta-manual {

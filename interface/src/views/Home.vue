@@ -10,7 +10,7 @@
     </p>
 
     <div class="home__modules">
-      <router-link to="/map" class="home__module">
+      <router-link to="/navigation" class="home__module">
         4th floor navigation
       </router-link>
       <a class="home__module" href="#">
