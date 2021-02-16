@@ -95,17 +95,17 @@ data: () => ({
     //   })
     // }
     navigation: function (coordinates) {
-      // axios.get('http://127.0.0.1:5000/navigation/' + coordinates)
-      //   .then((response) => {
-      //     console.log(response.data);
-      //   });
-      // const axios = require('axios');
-      // axios.get('http://127.0.0.1:5000/navigation/' + coordinates).then(resp => {
-      //     console.log(resp.data);
-      // });
-      console.log(coordinates)
-      this.$router.push('/info')
-      this.$route.params.pathMatch
+      this.$axios.get('http://localhost:5000/navigation/' + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
+      .then(resp => {
+          console.log(resp.data);
+      }).catch(function (error) {
+        console.log(error)
+      })
+      if (this.$route.path != '/info') {
+        this.$router.push('/info')
+        this.$route.params.pathMatch
+      }
+      this.show = false
     }
   }
 }

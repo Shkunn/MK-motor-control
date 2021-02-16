@@ -7,7 +7,7 @@
       <div class="cell">
         <DvicMap />
       </div>
-      <div class="cell">
+      <div class="cell cell-ctas">
         <button v-on:click="manual()" class="info__cta-manual">MANUAL MODE</button>
         <button v-on:click="stop()" class="info__cta-stop">STOP</button>
       </div>      
@@ -101,6 +101,13 @@ export default {
   justify-items: center;
 }
 
+.cell-ctas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .button-return {
   z-index: 1000;
   position: absolute;
@@ -147,91 +154,85 @@ export default {
 }
 
 .info__cta-manual {
-  display: inline-block;
+  display: block;
   margin: 0.5em 0;
-  padding: 1em 2em;
+  padding: 3em 2em;
   background: #fff;
-  border: 2px solid orange;
-  border-radius: 3px;
-  color: orange;
+  border: 10px solid #f07b4b;
+  border-radius: 20px;
+  color: #f07b4b;
   font-family: "Quicksand", sans-serif;
-  font-size: 1em;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
-  transition: 0.3s;
+  flex-basis: 100%;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .info__cta-stop {
-  /* color: red !important;
-  text-transform: uppercase;
-  position: relative;
-  top: 300px;
-  right: 100px;
-  background: #ffffff;
-  padding: 100px;
-  border: 7px solid red !important;
-  border-radius: 10px;
-  display: inline-block;
-  transition: all 0.3s ease 0s; */
-  display: inline-block;
+  display: block;
   margin: 0.5em 0;
-  padding: 1em 2em;
+  padding: 3em 2em;
   background: #fff;
-  border: 2px solid tomato;
-  border-radius: 3px;
-  color: tomato;
+  border: 10px solid red;
+  border-radius: 20px;
+  color: red;
   font-family: "Quicksand", sans-serif;
-  font-size: 1em;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
-  transition: 0.3s;
+  flex-basis: 100%;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.control {
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url('../assets/arrow.svg');
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .control {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 #LEFT{
-  top: 100px;
+  top: 500px;
   transform: rotate(180deg);
-  margin-left: -200px;
+  margin-left: 700px;
 }
 
 #RIGHT {
-  top: 100px;
-  margin-right: -200px;
+  top: 500px;
+  margin-left: 900px;
 }
 
 #UP {
   display: block;
+  top: 400px;
+  margin-left: 800px;
   transform: rotate(-90deg);
 }
 
 #DOWN {
   transform: rotate(90deg);
-  top: 200px;
-}
-
-
-@media screen and (max-width: 640px) {
-  #LEFT {
-    top: 50px;
-    margin-left: -100px;
-  }
-
-  #RIGHT {
-    top: 50px;
-    margin-right: -100px;
-  }
-
-  #DOWN {
-    transform: rotate(90deg);
-    top: 100px;
-  }
+  top: 600px;
+  margin-left: 800px;
 }
 
 </style>

@@ -76,7 +76,7 @@ export default {
 }
 
 .modal__return_button {
-  background-color: orange;
+  background-color: #f07b4b;
 }
 
 .info__cta-manual {
@@ -84,7 +84,7 @@ export default {
 }
 
 .info__cta-stop {
-  background-color: red;
+  background-color: rgb(87, 6, 6);
   margin-left: 30px;
 }
 </style>

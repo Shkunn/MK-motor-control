@@ -2,7 +2,7 @@ import socket
 
 # Define the IP address and the Port Number
 ip    = "127.0.0.1"
-port  = 7070
+port  = 80
 
 listeningAddress = (ip, port)
 
