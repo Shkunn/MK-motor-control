@@ -16,6 +16,12 @@
       </div>
     </div>
     <div class="modal-keypoint" v-if="show">
+      <div class="controls">
+        <div id="UP" v-on:mousedown="control('up')" v-on:mouseup="control('close')" class="control"></div>
+        <div id="LEFT" v-on:mousedown="control('left')" v-on:mouseup="control('close')" class="control"></div>
+        <div id="RIGHT" v-on:mousedown="control('right')" v-on:mouseup="control('close')" class="control"></div>
+        <div id="DOWN" v-on:mousedown="control('down')" v-on:mouseup="control('close')" class="control"></div>
+      </div>
       <span v-on:click="hideModal()" class="modal__close">x</span>
       <div class="modal__title">
        {{ modal.title }}
@@ -68,6 +74,13 @@ export default {
       this.show = false
       this.showReturn = true;
     },
+    control: function(direction) {
+    // let ip = document.getElementById("myip").value
+    // const url = "http:" + SERVER + "/control/" + ip + "/" + direction;
+    // Http.open("GET", url);
+    // Http.send();
+    alert(direction)
+    }
   }
 }
 
@@ -181,4 +194,44 @@ export default {
   cursor: pointer;
   transition: 0.3s;
 }
+
+#LEFT{
+  top: 100px;
+  transform: rotate(180deg);
+  margin-left: -200px;
+}
+
+#RIGHT {
+  top: 100px;
+  margin-right: -200px;
+}
+
+#UP {
+  display: block;
+  transform: rotate(-90deg);
+}
+
+#DOWN {
+  transform: rotate(90deg);
+  top: 200px;
+}
+
+
+@media screen and (max-width: 640px) {
+  #LEFT {
+    top: 50px;
+    margin-left: -100px;
+  }
+
+  #RIGHT {
+    top: 50px;
+    margin-right: -100px;
+  }
+
+  #DOWN {
+    transform: rotate(90deg);
+    top: 100px;
+  }
+}
+
 </style>
