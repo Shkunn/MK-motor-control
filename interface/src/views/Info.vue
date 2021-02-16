@@ -37,7 +37,7 @@ const SERVER = "127.0.0.1:5000"
 export default {
   name: "Info",
   data: () => ({
-    show: true,
+    show: false,
     modal: {
       title: '',
       description: '',
