@@ -1,11 +1,11 @@
 # Interface to send goals to MK2-R through a website
 
 ## HOW TO LAUNCH WEBSITE:
-go to : MK-motor-control/interface/src
+go to : MK-motor-control/interface/src  
 type  : yarn serve
 
 ## HOW TO LAUNCH FLASK API:
-got to : MK-motor-control/FLASK/NAV_MAP/API_CLIENT 
+got to : MK-motor-control/FLASK/NAV_MAP/API_CLIENT  
 type   : python3 new_api.py 
 
 ## LAUNCH CLIENT OR CODE WHERE THE CLIENT CODE IS
