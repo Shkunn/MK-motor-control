@@ -8,9 +8,9 @@
      <div id="BIOLIVINGLAB" v-on:click="showModal('biolivinglab')" class="biolivinglab_navigation"></div>
      <div id="WATERBOTTLE" v-on:click="showModal('waterbottle')" class="water_navigation"></div>
      <div id="ROBOT" v-on:click="showModal('robot')" class="navigation navigation_robot"></div>
-   </div>
+    </div>
 
-      <div class="modal-keypoint" v-if="show">
+    <div class="modal-keypoint" v-if="show">
      <span v-on:click="hideModal()" class="modal__close">x</span>
      <div class="modal__title">
        {{ modal.title }}
@@ -22,7 +22,7 @@
        MK2-R is the 4 wheels and robust version and of MK2. It will guide you through the different labs of the DVIC. Please follow him.
      </div>
      <button type="button" name="button" class="modal__button" v-on:click="navigation(modal.id)" v-if="modal.id != 'robot'">Go To</button>
-   </div>
+    </div>
   </div>
 </template>
 
@@ -95,6 +95,14 @@ data: () => ({
     //   })
     // }
     navigation: function (coordinates) {
+      // axios.get('http://127.0.0.1:5000/navigation/' + coordinates)
+      //   .then((response) => {
+      //     console.log(response.data);
+      //   });
+      // const axios = require('axios');
+      // axios.get('http://127.0.0.1:5000/navigation/' + coordinates).then(resp => {
+      //     console.log(resp.data);
+      // });
       console.log(coordinates)
       this.$router.push('/info')
       this.$route.params.pathMatch
