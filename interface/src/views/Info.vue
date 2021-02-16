@@ -63,6 +63,7 @@ export default {
 
 .cell {
   height: 50vh;
+  justify-items: center;
 }
 
 .button-return {
@@ -80,11 +81,51 @@ export default {
 }
 
 .info__cta-manual {
-  background-color: purple;
+  display: inline-block;
+  margin: 0.5em 0;
+  padding: 1em 2em;
+  background: #fff;
+  border: 2px solid orange;
+  border-radius: 3px;
+  color: orange;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .info__cta-stop {
-  background-color: red;
-  margin-left: 30px;
+  /* color: red !important;
+  text-transform: uppercase;
+  position: relative;
+  top: 300px;
+  right: 100px;
+  background: #ffffff;
+  padding: 100px;
+  border: 7px solid red !important;
+  border-radius: 10px;
+  display: inline-block;
+  transition: all 0.3s ease 0s; */
+  display: inline-block;
+  margin: 0.5em 0;
+  padding: 1em 2em;
+  background: #fff;
+  border: 2px solid tomato;
+  border-radius: 3px;
+  color: tomato;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
 }
 </style>

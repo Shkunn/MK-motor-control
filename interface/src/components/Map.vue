@@ -81,19 +81,23 @@ data: () => ({
       this.show = false
       this.showReturn = true;
     },
+    // navigation: function (coordinates) {
+    //   alert(coordinates)
+    //   this.$http.get("http://localhost:5000/navigation/" + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
+    //   .then(function (response) {
+    //       console.log(response)
+    //       this.$router.push('/info')
+    //   this.$route.params.pathMatch
+    //   })
+    //   .catch(function (error) {
+    //   // handle error
+    //   console.log(error);
+    //   })
+    // }
     navigation: function (coordinates) {
-      alert(coordinates)
-      this.$http.get("http://localhost:5000/navigation/" + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
-      .then(function (response) {
-          console.log(response)
-          this.$router.push('/info')
+      console.log(coordinates)
+      this.$router.push('/info')
       this.$route.params.pathMatch
-    })
-    .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-      
     }
   }
 }
