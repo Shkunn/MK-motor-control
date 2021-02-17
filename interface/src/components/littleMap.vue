@@ -7,7 +7,7 @@
      <div id="CLASSROOM" v-on:click="showModal('classsroom')" class="classroom_navigation"></div>
      <div id="BIOLIVINGLAB" v-on:click="showModal('biolivinglab')" class="biolivinglab_navigation"></div>
      <div id="WATERBOTTLE" v-on:click="showModal('waterbottle')" class="water_navigation"></div>
-     <div id="ROBOT" v-on:click="showModal('robot')" class="navigation_robot"></div>
+     <div id="ROBOT" v-on:click="showModal('robot')" class="navigation navigation_robot"></div>
      <div id="ELEVATOR" v-on:click="showModal('elevator')" class="elevator_class"></div>
     </div>
 
@@ -160,29 +160,25 @@ data: () => ({
   margin-top: 50px;
 }
 
-.map {
-  width: 1000px;
-  height: 1000px;
-}
-
 .navigations {
   position: relative;
-  width: 1000px;
-  height: 1000px;
+  width: 385px;
+  height: 500px;
   background-image: url('../assets/4map-bg.jpeg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  left: 550px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .foodlab_navigation {
   position: absolute;
   display: block;
-  top: 360px;
-  left: 240px;
-  width: 70px;
-  height: 70px;
+  top: 210px;
+  left: 60px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/foodlab.svg');
   cursor: pointer;
   background-size: contain;
@@ -193,10 +189,10 @@ data: () => ({
 .elec_navigation {
   position: absolute;
   display: block;
-  top: 700px;
-  left: 240px;
-  width: 70px;
-  height: 70px;
+  top: 350px;
+  left: 60px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/eleclab.svg');
   cursor: pointer;
   background-size: contain;
@@ -207,10 +203,10 @@ data: () => ({
 .fourdspace_navigation {
   position: absolute;
   display: block;
-  top: 830px;
-  left: 240px;
-  width: 70px;
-  height: 70px;
+  top: 420px;
+  left: 60px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/4Dspace.svg');
   cursor: pointer;
   background-size: contain;
@@ -221,10 +217,10 @@ data: () => ({
 .classroom_navigation {
   position: absolute;
   display: block;
-  top: 580px;
-  left: 340px;
-  width: 70px;
-  height: 70px;
+  top: 280px;
+  left: 110px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/classroom.svg');
   cursor: pointer;
   background-size: contain;
@@ -235,10 +231,10 @@ data: () => ({
 .biolivinglab_navigation {
   position: absolute;
   display: block;
-  top: 610px;
-  right: 320px;
-  width: 70px;
-  height: 70px;
+  top: 310px;
+  right: 105px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/biolab.svg');
   cursor: pointer;
   background-size: contain;
@@ -249,10 +245,10 @@ data: () => ({
 .water_navigation {
   position: absolute;
   display: block;
-  top: 710px;
-  right: 200px;
-  width: 70px;
-  height: 70px;
+  top: 360px;
+  right: 40px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/waterbottle.svg');
   cursor: pointer;
   background-size: contain;
@@ -263,10 +259,10 @@ data: () => ({
 .navigation_robot {
   position: absolute;
   display: block;
-  top: 120px;
-  right: 450px;
-  width: 50px;
-  height: 50px;
+  top: 60px;
+  left: 190px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/robot.svg');
   cursor: pointer;
   background-size: contain;
@@ -277,10 +273,10 @@ data: () => ({
 .elevator_class {
   position: absolute;
   display: block;
-  top: 120px;
-  right: 360px;
-  width: 50px;
-  height: 50px;
+  top: 55px;
+  left: 240px;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/elevator.svg');
   cursor: pointer;
   background-size: contain;

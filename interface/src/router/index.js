@@ -3,7 +3,9 @@ import axios from 'axios'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
+Vue.component("DviclittleMap", () => import("../components/littleMap.vue"));
 Vue.component("DvicMap", () => import("../components/Map.vue"));
+
 Vue.prototype.$http = axios
 Vue.use(VueRouter)
 

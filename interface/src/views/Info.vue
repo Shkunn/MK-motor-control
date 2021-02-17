@@ -5,11 +5,11 @@
         Stat
       </div>
       <div class="cell">
-        <DvicMap />
+        <DviclittleMap />
       </div>
       <div class="cell cell-ctas">
         <button v-on:click="manual()" class="info__cta-manual">MANUAL MODE</button>
-        <button v-on:click="stop()" class="info__cta-stop">STOP</button>
+        <button v-on:click="stop('stop')" class="info__cta-stop">STOP</button>
       </div>      
       <div class="cell">
         CAMERA VIEW
@@ -37,8 +37,6 @@
   </div>
 </template>
 <script>
-const Http = new XMLHttpRequest();
-const SERVER = "127.0.0.1:5000"
 
 export default {
   name: "Info",
@@ -64,22 +62,24 @@ export default {
       // this.$route.params.pathMatch
     },
     stop: function (coordinates) {
-      const url = "http:" + SERVER + "/navigation/" + coordinates;
-      Http.open("GET", url);
-      Http.send();
-      //this.$router.push('/info')
-      //this.$route.params.pathMatch
+      this.$axios.get('http://localhost:5000/navigation/' + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
+      .then(resp => {
+          console.log(resp.data);
+      }).catch(function (error) {
+        console.log(error)
+      })
     },
     hideModal: function() {
       this.show = false
       this.showReturn = true;
     },
     control: function(direction) {
-    // let ip = document.getElementById("myip").value
-    // const url = "http:" + SERVER + "/control/" + ip + "/" + direction;
-    // Http.open("GET", url);
-    // Http.send();
-    alert(direction)
+    this.$axios.get('http://localhost:5000/control/' + direction, {headers: {'Access-Control-Allow-Origin': '*'}})
+      .then(resp => {
+          console.log(resp.data);
+      }).catch(function (error) {
+        console.log(error)
+      })
     }
   }
 }
