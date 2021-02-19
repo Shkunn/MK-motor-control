@@ -158,11 +158,14 @@ data: () => ({
 }
 .modal__button {
   margin-top: 50px;
+  font-size: 30px;
 }
 
 .map {
   width: 1000px;
   height: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navigations {
@@ -173,7 +176,6 @@ data: () => ({
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  left: 550px;
 }
 
 .foodlab_navigation {

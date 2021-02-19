@@ -164,6 +164,7 @@ data: () => ({
   position: relative;
   width: 385px;
   height: 500px;
+  top: -15px;
   background-image: url('../assets/4map-bg.jpeg');
   background-size: contain;
   background-repeat: no-repeat;

@@ -28,8 +28,7 @@ export default {
   name: 'Home',
   methods: {
     info: function() {
-      console.log('guigui')
-      alert('yes')
+      alert('hello')
     }
   }
 }
