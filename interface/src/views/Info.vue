@@ -110,7 +110,7 @@ export default {
       this.showReturn = true;
     },
     control: function(direction) {
-    this.$axios.get('http://localhost:5000/control/' + direction, {headers: {'Access-Control-Allow-Origin': '*'}})
+    this.$axios.get('http://localhost:5000/navigation/' + direction, {headers: {'Access-Control-Allow-Origin': '*'}})
       .then(resp => {
           console.log(resp.data);
       }).catch(function (error) {

@@ -1,8 +1,8 @@
 import socket
 
 # Define the IP address and the Port Number
-ip    = "127.0.0.1"
-port  = 8888
+ip    = "172.21.72.170"
+port  = 8080
 
 listeningAddress = (ip, port)
 
