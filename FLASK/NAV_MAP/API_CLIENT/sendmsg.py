@@ -24,8 +24,8 @@ import socket
 import time
 import argparse
 
-ip   = "172.21.72.167"
-PORT = 8080
+ip   = "172.21.72.103"
+PORT = 8081
 
 # msg = 0
 # cc = bytes([msg])
