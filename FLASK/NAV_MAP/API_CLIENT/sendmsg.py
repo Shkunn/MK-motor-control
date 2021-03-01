@@ -24,7 +24,7 @@ import socket
 import time
 import argparse
 
-ip   = "172.21.72.103"
+IP   = "172.21.72.103"
 PORT = 8081
 
 # msg = 0
@@ -37,4 +37,4 @@ cc = msg.encode()
 
 with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as opened_socket:
     opened_socket.setblocking(0)
-    opened_socket.sendto(cc, (ip, PORT))
+    opened_socket.sendto(cc, (IP, PORT))
