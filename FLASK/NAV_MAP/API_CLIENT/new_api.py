@@ -39,7 +39,7 @@ def navigation(coordinates):
 def position_update():
     global coord
     print(coord)
-    with lock: return jsonify(hello=coord)
+    with lock: return jsonify(coord)
 
 
 if __name__ == '__main__':

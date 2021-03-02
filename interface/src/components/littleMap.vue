@@ -30,24 +30,102 @@
 <script>
 export default {
   name: 'Map',
-data: () => ({
-    show: false,
-    modal: {
-      id: '',
-      title: '',
-      description: ''
-    }
-  }),
-   created: function () {
-    this.startInterval()
-  },
-  methods: {
-       startInterval: function () {
-                   setInterval(() => {
-                                this.$axios.get('http://localhost:5000/position_update/', {headers: {'Access-Control-Allow-Origin': '*'}})
+  data: () => ({
+      show: false,
+      modal: {
+        id: '',
+        title: '',
+        description: ''
+      }
+    }),
+    mounted: function () {
+      this.startInterval()
+    },
+    methods: {
+      startInterval: function () {
+        setInterval(() => {
+          this.$axios.get('http://localhost:5000/position_update/', {headers: {'Access-Control-Allow-Origin': '*'}})
+          .then(resp => {
+              document.getElementById("ROBOT").style.top = resp.data.split(",")[0] + "%";
+              document.getElementById("ROBOT").style.left = resp.data.split(",")[1] + "%";
+              console.log(resp.data)
+          }).catch(function (error) {
+            console.log(error)
+          })
+          if (this.$route.path != '/info') {
+            this.$router.push('/info')
+            this.$route.params.pathMatch
+          }
+          this.show = false
+        }, 1000);
+      },
+      showModal: function (coordinates) {
+        this.showReturn = false
+        if (coordinates == 'foodlab') {
+          this.modal.id = 'foodlab'
+          this.modal.title = 'Food Tech Lab'
+          this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          this.show = true
+        } else if (coordinates == 'robot') {
+          this.modal.id = 'robot'
+          this.modal.title = 'MK2-R'
+          this.modal.description = ''
+          this.show = true
+        } else if (coordinates == 'electroniclab') {
+          this.modal.id = 'electroniclab'
+          this.modal.title = 'Electronic Lab'
+          this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          this.show = true
+        } else if (coordinates == '4Dspace') {
+          this.modal.id = '4Dspace'
+          this.modal.title = '4D space'
+          this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          this.show = true
+        } else if (coordinates == 'classsroom') {
+          this.modal.id = 'classroom'
+          this.modal.title = 'Classroom'
+          this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          this.show = true
+        } else if (coordinates == 'biolivinglab') {
+          this.modal.id = 'biolivinglab'
+          this.modal.title = 'Bio Living Lab'
+          this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          this.show = true
+        } else if (coordinates == 'waterbottle') {
+          this.modal.id = 'waterbottle'
+          this.modal.title = 'Water Bottle'
+          this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          this.show = true
+        } else if (coordinates == 'elevator') {
+          this.modal.id = 'elevator'
+          this.modal.title = 'Elevator'
+          this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          this.show = true
+        }
+      },
+      hideModal: function() {
+        console.log("polpi")
+        this.show = false
+        this.showReturn = true;
+        // clearInterval(this.startInterval());
+      },
+      
+      // navigation: function (coordinates) {
+      //   alert(coordinates)
+      //   this.$http.get("http://localhost:5000/navigation/" + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
+      //   .then(function (response) {
+      //       console.log(response)
+      //       this.$router.push('/info')
+      //   this.$route.params.pathMatch
+      //   })
+      //   .catch(function (error) {
+      //   // handle error
+      //   console.log(error);
+      //   })
+      // }
+      navigation: function (coordinates) {
+        this.$axios.get('http://localhost:5000/navigation/' + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
         .then(resp => {
-            resp.data = resp.data.split(",")
-            document.getElementById("ROBOT").style.position = "absolute" + resp.data[0] + "%" + resp.data[1] + "%";
             console.log(resp.data);
         }).catch(function (error) {
           console.log(error)
@@ -57,85 +135,9 @@ data: () => ({
           this.$route.params.pathMatch
         }
         this.show = false
-                   }, 1000);
-          },
-    showModal: function (coordinates) {
-      this.showReturn = false
-      if (coordinates == 'foodlab') {
-        this.modal.id = 'foodlab'
-        this.modal.title = 'Food Tech Lab'
-        this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        this.show = true
-      } else if (coordinates == 'robot') {
-        this.modal.id = 'robot'
-        this.modal.title = 'MK2-R'
-        this.modal.description = ''
-        this.show = true
-      } else if (coordinates == 'electroniclab') {
-        this.modal.id = 'electroniclab'
-        this.modal.title = 'Electronic Lab'
-        this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        this.show = true
-      } else if (coordinates == '4Dspace') {
-        this.modal.id = '4Dspace'
-        this.modal.title = '4D space'
-        this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        this.show = true
-      } else if (coordinates == 'classsroom') {
-        this.modal.id = 'classroom'
-        this.modal.title = 'Classroom'
-        this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        this.show = true
-      } else if (coordinates == 'biolivinglab') {
-        this.modal.id = 'biolivinglab'
-        this.modal.title = 'Bio Living Lab'
-        this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        this.show = true
-      } else if (coordinates == 'waterbottle') {
-        this.modal.id = 'waterbottle'
-        this.modal.title = 'Water Bottle'
-        this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        this.show = true
-      } else if (coordinates == 'elevator') {
-        this.modal.id = 'elevator'
-        this.modal.title = 'Elevator'
-        this.modal.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        this.show = true
       }
-    },
-    hideModal: function() {
-      this.show = false
-      this.showReturn = true;
-    },
-    
-    // navigation: function (coordinates) {
-    //   alert(coordinates)
-    //   this.$http.get("http://localhost:5000/navigation/" + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
-    //   .then(function (response) {
-    //       console.log(response)
-    //       this.$router.push('/info')
-    //   this.$route.params.pathMatch
-    //   })
-    //   .catch(function (error) {
-    //   // handle error
-    //   console.log(error);
-    //   })
-    // }
-    navigation: function (coordinates) {
-      this.$axios.get('http://localhost:5000/navigation/' + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
-      .then(resp => {
-          console.log(resp.data);
-      }).catch(function (error) {
-        console.log(error)
-      })
-      if (this.$route.path != '/info') {
-        this.$router.push('/info')
-        this.$route.params.pathMatch
-      }
-      this.show = false
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -185,19 +187,18 @@ data: () => ({
   position: relative;
   width: 662px;
   height: 500px;
-  background-image: url('../assets/4map_scaled.jpg');
+  background-image: url('../assets/4map.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .foodlab_navigation {
   position: absolute;
   display: block;
-  top: 71%;
-  left: 37%;
-  width: 50px;
-  height: 50px;
+  top: 74%;
+  left: 47%;
+  width: 25px;
+  height: 25px;
   background-image: url('../assets/foodlab.svg');
   cursor: pointer;
   background-size: contain;
@@ -208,10 +209,10 @@ data: () => ({
 .elec_navigation {
   position: absolute;
   display: block;
-  top: 77%;
-  left: 73%;
-  width: 50px;
-  height: 50px;
+  top: 66%;
+  left: 77%;
+  width: 25px;
+  height: 25px;
   background-image: url('../assets/eleclab.svg');
   cursor: pointer;
   background-size: contain;
@@ -222,10 +223,10 @@ data: () => ({
 .fourdspace_navigation {
   position: absolute;
   display: block;
-  top: 66%;
-  left: 82%;
-  width: 50px;
-  height: 50px;
+  top: 54%;
+  left: 84%;
+  width: 25px;
+  height: 25px;
   background-image: url('../assets/4Dspace.svg');
   cursor: pointer;
   background-size: contain;
@@ -237,9 +238,9 @@ data: () => ({
   position: absolute;
   display: block;
   top: 60%;
-  left: 55%;
-  width: 50px;
-  height: 50px;
+  left: 60%;
+  width: 25px;
+  height: 25px;
   background-image: url('../assets/classroom.svg');
   cursor: pointer;
   background-size: contain;
@@ -250,10 +251,10 @@ data: () => ({
 .biolivinglab_navigation {
   position: absolute;
   display: block;
-  top: 32%;
-  left: 68%;
-  width: 50px;
-  height: 50px;
+  top: 30%;
+  left: 60%;
+  width: 25px;
+  height: 25px;
   background-image: url('../assets/biolab.svg');
   cursor: pointer;
   background-size: contain;
@@ -264,10 +265,10 @@ data: () => ({
 .water_navigation {
   position: absolute;
   display: block;
-  top: 31%;
-  left: 85%;
-  width: 50px;
-  height: 50px;
+  top: 23%;
+  left: 78%;
+  width: 25px;
+  height: 25px;
   background-image: url('../assets/waterbottle.svg');
   cursor: pointer;
   background-size: contain;
@@ -278,10 +279,10 @@ data: () => ({
 .navigation_robot {
   position: absolute;
   display: block;
-  top: 60%;
-  left: 78.5%;
-  width: 30px;
-  height: 30px;
+  top: 55%;
+  left: 79%;
+  width: 15px;
+  height: 15px;
   background-image: url('../assets/robot.svg');
   cursor: pointer;
   background-size: contain;
@@ -292,10 +293,10 @@ data: () => ({
 .elevator_class {
   position: absolute;
   display: block;
-  top: 20%;
+  top: 35%;
   left: 25%;
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   background-image: url('../assets/elevator.svg');
   cursor: pointer;
   background-size: contain;

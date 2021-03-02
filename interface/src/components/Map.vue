@@ -174,7 +174,7 @@ data: () => ({
   position: relative;
   width: 1324px;
   height: 1000px;
-  background-image: url('../assets/4map_scaled.jpg');
+  background-image: url('../assets/4map.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -183,8 +183,8 @@ data: () => ({
 .foodlab_navigation {
   position: absolute;
   display: block;
-  top: 71%;
-  left: 37%;
+  top: 74%;
+  left: 47%;
   width: 50px;
   height: 50px;
   background-image: url('../assets/foodlab.svg');
@@ -197,8 +197,8 @@ data: () => ({
 .elec_navigation {
   position: absolute;
   display: block;
-  top: 77%;
-  left: 73%;
+  top: 66%;
+  left: 77%;
   width: 50px;
   height: 50px;
   background-image: url('../assets/eleclab.svg');
@@ -211,8 +211,8 @@ data: () => ({
 .fourdspace_navigation {
   position: absolute;
   display: block;
-  top: 66%;
-  left: 82%;
+  top: 54%;
+  left: 84%;
   width: 50px;
   height: 50px;
   background-image: url('../assets/4Dspace.svg');
@@ -226,7 +226,7 @@ data: () => ({
   position: absolute;
   display: block;
   top: 60%;
-  left: 55%;
+  left: 60%;
   width: 50px;
   height: 50px;
   background-image: url('../assets/classroom.svg');
@@ -239,8 +239,8 @@ data: () => ({
 .biolivinglab_navigation {
   position: absolute;
   display: block;
-  top: 32%;
-  left: 68%;
+  top: 30%;
+  left: 60%;
   width: 50px;
   height: 50px;
   background-image: url('../assets/biolab.svg');
@@ -253,8 +253,8 @@ data: () => ({
 .water_navigation {
   position: absolute;
   display: block;
-  top: 31%;
-  left: 85%;
+  top: 23%;
+  left: 78%;
   width: 50px;
   height: 50px;
   background-image: url('../assets/waterbottle.svg');
@@ -267,8 +267,8 @@ data: () => ({
 .navigation_robot {
   position: absolute;
   display: block;
-  top: 60%;
-  left: 78.5%;
+  top: 55%;
+  left: 79%;
   width: 30px;
   height: 30px;
   background-image: url('../assets/robot.svg');
@@ -281,7 +281,7 @@ data: () => ({
 .elevator_class {
   position: absolute;
   display: block;
-  top: 20%;
+  top: 35%;
   left: 25%;
   width: 50px;
   height: 50px;
