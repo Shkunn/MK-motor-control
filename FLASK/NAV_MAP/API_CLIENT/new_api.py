@@ -1,12 +1,31 @@
 from flask import Flask, redirect, url_for, request, jsonify
-import socket
 from flask_cors import CORS
 
+import socket
+import threading
+
 IP   = "172.21.72.103"
-PORT = 8081
+PORT = 8080
+IP_local    = "172.21.72.145"
+PORT2 = 8081
 
 app = Flask(__name__)
 CORS(app)
+
+listeningAddress = (IP_local, PORT2)
+datagramSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+datagramSocket.bind(listeningAddress)
+
+coord = ""
+lock = threading.Lock()
+
+def read_coord():
+    global coord
+    while True:
+        localization, sourceAddress = datagramSocket.recvfrom(128)
+        with lock: 
+            coord = localization.decode()
+            print("coord : " + str(coord))
 
 @app.route('/navigation/<coordinates>')
 def navigation(coordinates):
@@ -15,23 +34,20 @@ def navigation(coordinates):
         opened_socket.sendto(byte_message, (IP, PORT))
     return jsonify(hello='world')
 
-IP_local    = "172.21.72.145"
-PORT2 = 8081
-
-listeningAddress = (IP_local, PORT2)
-datagramSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-datagramSocket.bind(listeningAddress)
 # Create a datagram based server socket that uses IPv4 addressing scheme
-
-
-
 @app.route('/position_update/')
 def position_update():
-    # print("ted")	
-    # localization, sourceAddress = datagramSocket.recvfrom(128)
-    # print("Go to %s "%(localization.decode()))
-    # return jsonify(hello=localization.decode())
-    return jsonify(hello='world')
+    global coord
+    print(coord)
+    with lock: return jsonify(hello=coord)
+
 
 if __name__ == '__main__':
-    app.run(debug=True, threaded=True)
+    thread = threading.Thread(target=read_coord)
+    thread.start()
+
+    
+    app.run(debug=True, threaded=True, use_reloader = False)
+    thread.join()
+
+    

@@ -46,8 +46,9 @@ data: () => ({
                    setInterval(() => {
                                 this.$axios.get('http://localhost:5000/position_update/', {headers: {'Access-Control-Allow-Origin': '*'}})
         .then(resp => {
-            document.getElementById("ROBOT").style.position = "absolute" + resp.data.split(" ")[0] + "%" + resp.data.split(" ")[1] + "%";
-            console.log("polpi");
+            resp.data = resp.data.split(",")
+            document.getElementById("ROBOT").style.position = "absolute" + resp.data[0] + "%" + resp.data[1] + "%";
+            console.log(resp.data);
         }).catch(function (error) {
           console.log(error)
         })
