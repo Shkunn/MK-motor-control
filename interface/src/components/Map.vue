@@ -162,17 +162,19 @@ data: () => ({
 }
 
 .map {
-  width: 1000px;
+  width: 1324px;
   height: 1000px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;  
 }
 
 .navigations {
   position: relative;
-  width: 1000px;
+  width: 1324px;
   height: 1000px;
-  background-image: url('../assets/4map-bg.jpeg');
+  background-image: url('../assets/4map_scaled.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -181,10 +183,10 @@ data: () => ({
 .foodlab_navigation {
   position: absolute;
   display: block;
-  top: 360px;
-  left: 240px;
-  width: 70px;
-  height: 70px;
+  top: 71%;
+  left: 37%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/foodlab.svg');
   cursor: pointer;
   background-size: contain;
@@ -195,10 +197,10 @@ data: () => ({
 .elec_navigation {
   position: absolute;
   display: block;
-  top: 700px;
-  left: 240px;
-  width: 70px;
-  height: 70px;
+  top: 77%;
+  left: 73%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/eleclab.svg');
   cursor: pointer;
   background-size: contain;
@@ -209,10 +211,10 @@ data: () => ({
 .fourdspace_navigation {
   position: absolute;
   display: block;
-  top: 830px;
-  left: 240px;
-  width: 70px;
-  height: 70px;
+  top: 66%;
+  left: 82%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/4Dspace.svg');
   cursor: pointer;
   background-size: contain;
@@ -223,10 +225,10 @@ data: () => ({
 .classroom_navigation {
   position: absolute;
   display: block;
-  top: 580px;
-  left: 340px;
-  width: 70px;
-  height: 70px;
+  top: 60%;
+  left: 55%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/classroom.svg');
   cursor: pointer;
   background-size: contain;
@@ -237,10 +239,10 @@ data: () => ({
 .biolivinglab_navigation {
   position: absolute;
   display: block;
-  top: 610px;
-  right: 320px;
-  width: 70px;
-  height: 70px;
+  top: 32%;
+  left: 68%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/biolab.svg');
   cursor: pointer;
   background-size: contain;
@@ -251,10 +253,10 @@ data: () => ({
 .water_navigation {
   position: absolute;
   display: block;
-  top: 710px;
-  right: 200px;
-  width: 70px;
-  height: 70px;
+  top: 31%;
+  left: 85%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/waterbottle.svg');
   cursor: pointer;
   background-size: contain;
@@ -265,10 +267,10 @@ data: () => ({
 .navigation_robot {
   position: absolute;
   display: block;
-  top: 120px;
-  right: 450px;
-  width: 50px;
-  height: 50px;
+  top: 60%;
+  left: 78.5%;
+  width: 30px;
+  height: 30px;
   background-image: url('../assets/robot.svg');
   cursor: pointer;
   background-size: contain;
@@ -279,8 +281,8 @@ data: () => ({
 .elevator_class {
   position: absolute;
   display: block;
-  top: 120px;
-  right: 360px;
+  top: 20%;
+  left: 25%;
   width: 50px;
   height: 50px;
   background-image: url('../assets/elevator.svg');
@@ -289,5 +291,6 @@ data: () => ({
   background-repeat: no-repeat;
   background-position: center;
 }
+
 
 </style>

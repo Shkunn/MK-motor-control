@@ -38,7 +38,26 @@ data: () => ({
       description: ''
     }
   }),
+   created: function () {
+    this.startInterval()
+  },
   methods: {
+       startInterval: function () {
+                   setInterval(() => {
+                                this.$axios.get('http://localhost:5000/position_update/', {headers: {'Access-Control-Allow-Origin': '*'}})
+        .then(resp => {
+            document.getElementById("ROBOT").style.position = "absolute" + resp.data.split(" ")[0] + "%" + resp.data.split(" ")[1] + "%";
+            console.log("polpi");
+        }).catch(function (error) {
+          console.log(error)
+        })
+        if (this.$route.path != '/info') {
+          this.$router.push('/info')
+          this.$route.params.pathMatch
+        }
+        this.show = false
+                   }, 1000);
+          },
     showModal: function (coordinates) {
       this.showReturn = false
       if (coordinates == 'foodlab') {
@@ -87,6 +106,7 @@ data: () => ({
       this.show = false
       this.showReturn = true;
     },
+    
     // navigation: function (coordinates) {
     //   alert(coordinates)
     //   this.$http.get("http://localhost:5000/navigation/" + coordinates, {headers: {'Access-Control-Allow-Origin': '*'}})
@@ -162,24 +182,21 @@ data: () => ({
 
 .navigations {
   position: relative;
-  width: 385px;
+  width: 662px;
   height: 500px;
-  top: -15px;
-  background-image: url('../assets/4map-bg.jpeg');
+  background-image: url('../assets/4map_scaled.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .foodlab_navigation {
   position: absolute;
   display: block;
-  top: 210px;
-  left: 60px;
-  width: 30px;
-  height: 30px;
+  top: 71%;
+  left: 37%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/foodlab.svg');
   cursor: pointer;
   background-size: contain;
@@ -190,10 +207,10 @@ data: () => ({
 .elec_navigation {
   position: absolute;
   display: block;
-  top: 350px;
-  left: 60px;
-  width: 30px;
-  height: 30px;
+  top: 77%;
+  left: 73%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/eleclab.svg');
   cursor: pointer;
   background-size: contain;
@@ -204,10 +221,10 @@ data: () => ({
 .fourdspace_navigation {
   position: absolute;
   display: block;
-  top: 420px;
-  left: 60px;
-  width: 30px;
-  height: 30px;
+  top: 66%;
+  left: 82%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/4Dspace.svg');
   cursor: pointer;
   background-size: contain;
@@ -218,10 +235,10 @@ data: () => ({
 .classroom_navigation {
   position: absolute;
   display: block;
-  top: 280px;
-  left: 110px;
-  width: 30px;
-  height: 30px;
+  top: 60%;
+  left: 55%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/classroom.svg');
   cursor: pointer;
   background-size: contain;
@@ -232,10 +249,10 @@ data: () => ({
 .biolivinglab_navigation {
   position: absolute;
   display: block;
-  top: 310px;
-  right: 105px;
-  width: 30px;
-  height: 30px;
+  top: 32%;
+  left: 68%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/biolab.svg');
   cursor: pointer;
   background-size: contain;
@@ -246,10 +263,10 @@ data: () => ({
 .water_navigation {
   position: absolute;
   display: block;
-  top: 360px;
-  right: 40px;
-  width: 30px;
-  height: 30px;
+  top: 31%;
+  left: 85%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/waterbottle.svg');
   cursor: pointer;
   background-size: contain;
@@ -260,8 +277,8 @@ data: () => ({
 .navigation_robot {
   position: absolute;
   display: block;
-  top: 60px;
-  left: 190px;
+  top: 60%;
+  left: 78.5%;
   width: 30px;
   height: 30px;
   background-image: url('../assets/robot.svg');
@@ -274,15 +291,16 @@ data: () => ({
 .elevator_class {
   position: absolute;
   display: block;
-  top: 55px;
-  left: 240px;
-  width: 30px;
-  height: 30px;
+  top: 20%;
+  left: 25%;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/elevator.svg');
   cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
+
 
 </style>
