@@ -52,10 +52,6 @@ export default {
           }).catch(function (error) {
             console.log(error)
           })
-          if (this.$route.path != '/info') {
-            this.$router.push('/info')
-            this.$route.params.pathMatch
-          }
           this.show = false
         }, 1000);
       },
@@ -185,8 +181,8 @@ export default {
 
 .navigations {
   position: relative;
-  width: 662px;
-  height: 500px;
+  width: 1000px;
+  height: 725px;
   background-image: url('../assets/4map.jpg');
   background-size: contain;
   background-repeat: no-repeat;

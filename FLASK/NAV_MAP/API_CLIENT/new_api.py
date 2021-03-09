@@ -1,4 +1,5 @@
-from flask import Flask, redirect, url_for, request, jsonify
+from camera import Camera
+from flask import Flask, redirect, url_for, request, jsonify, render_template, Response
 from flask_cors import CORS
 
 import socket
@@ -27,6 +28,12 @@ def read_coord():
             coord = localization.decode()
             print("coord : " + str(coord))
 
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
 @app.route('/navigation/<coordinates>')
 def navigation(coordinates):
     byte_message = coordinates.encode()
@@ -39,6 +46,8 @@ def navigation(coordinates):
 def position_update():
     global coord
     print(coord)
+    print(Response(gen(Camera()),
+                mimetype='multipart/x-mixed-replace; boundary=frame'))
     with lock: return jsonify(coord)
 
 

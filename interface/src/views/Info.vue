@@ -40,8 +40,10 @@
         <button v-on:click="manual('stop')" class="info__cta-manual">MANUAL MODE</button>
         <button v-on:click="stop('stop')" class="info__cta-stop">STOP</button>
       </div>      
-      <div class="cell camera-view">
-        <h1>CAMERA VIEW</h1>
+      <div class="cell">
+        <DvicCameraFront/>
+        <!-- <button type="button" class="btn btn-primary" @click="onJoin">Join</button>
+       <button type="button" class="btn btn-primary" @click="onLeave">Leave</button> -->
       </div>
     </div>
     <div class="modal-keypoint" v-if="show">
@@ -66,10 +68,11 @@
    </div>
   </div>
 </template>
-<script>
 
+<script>
 export default {
-  name: "Info",
+  components: { },
+   name: "Info",
   data: () => ({
     show: false,
     modal: {
@@ -125,7 +128,6 @@ export default {
 #info {
   color: white;
 }
-
 .cells {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

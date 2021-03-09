@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 
 Vue.component("DviclittleMap", () => import("../components/littleMap.vue"));
 Vue.component("DvicMap", () => import("../components/Map.vue"));
+Vue.component("DvicCameraFront", () => import("../components/CameraFront.vue"));
 
 Vue.prototype.$http = axios
 Vue.use(VueRouter)
