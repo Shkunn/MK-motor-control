@@ -12,16 +12,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5">
-          <h3>Remote stream</h3>
           <video id="videoOutput" ref="videoOutput" autoplay
             poster="../assets/logo.png">
           </video>
           <br/><br/>
         </div>
-        <div class="col-md-2">
-          <a id="start" v-on:click="start()" href="#" class="button">
+        <div class="buts">
+          <a id="start" v-on:click="start()" href="#" class="button_start">
             <span class="glyphicon glyphicon-play"></span> Start</a><br /> <br /> 
-          <a id="stop" v-on:click="stop()" href="#" class="button">
+          <a id="stop" v-on:click="stop()" href="#" class="button_stop">
             <span class="glyphicon glyphicon-stop"></span> Stop </a>
         </div>
       </div>
@@ -39,7 +38,7 @@ export default {
     show: false,
     modal: {
       id: '',
-      title: '',
+      title: '', 
       pipeline: '',
       webRtcPeer: '',
       args: '',
@@ -68,6 +67,7 @@ export default {
         vm.url = 'rtsp://localhost:8554/feed1';
       });
   },
+
   methods: {
     getopts: function(args, opts)
     {
@@ -168,14 +168,11 @@ export default {
       });
     },
     stop: function() {
-      console.log("polpi")
       if (this.webRtcPeer) {
-        console.log("pol")
         this.webRtcPeer.dispose();
         this.webRtcPeer = null;
       }
       if(this.pipeline){
-        console.log("pi")
         this.pipeline.release();
         this.pipeline = null;
       }
@@ -187,7 +184,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.button {
+.button_start {
+  right: 1%;
+  top: 95%;
+  position:absolute;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button_stop {
+  right: 1%;
+  top: 100%;
+  position:absolute;
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -200,8 +213,8 @@ export default {
 
 #videoOutput{
   position: relative;
-  margin-top : 10% ;
-  width: 100%;
+  width: 70%;  
   left: 0px;
+  z-index: 999;
 }
 </style>
