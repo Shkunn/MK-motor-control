@@ -12,7 +12,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5">
-          <video id="videoOutput" ref="videoOutput" autoplay
+          <video id="videoOutput" ref="videoOutput" autoplay playsinline muted loop
             poster="../assets/logo.png">
           </video>
           <br/><br/>
@@ -213,8 +213,10 @@ export default {
 
 #videoOutput{
   position: relative;
-  width: 70%;  
+  right: 0px; 
   left: 0px;
+  top: 0px;
+  bottom: 0px;
   z-index: 999;
 }
 </style>

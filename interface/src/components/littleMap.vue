@@ -181,8 +181,8 @@ export default {
 
 .navigations {
   position: relative;
-  width: 1000px;
-  height: 725px;
+  width: 80%;
+  height: 480px;
   background-image: url('../assets/4map.jpg');
   background-size: contain;
   background-repeat: no-repeat;
